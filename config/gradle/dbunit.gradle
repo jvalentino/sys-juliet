@@ -87,6 +87,12 @@ task exportMainDb() {
 
 task loadMainDb() {
 	doLast {
+        deleteDatabase(
+				"jdbc:postgresql://localhost:5432/examplesys",
+				"postgres",
+				"postgres",
+				"config/dbunit/db.xml"
+		)
 		loadDatabase(
 				"jdbc:postgresql://localhost:5432/examplesys",
 				"postgres",
